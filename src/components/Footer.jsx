@@ -138,7 +138,7 @@ export default function Footer() {
 
         {/* COPYRIGHT */}
         <div className="border-t pt-4 text-xs text-center text-gray-500">
-          ©2024 LOCATIVE.ID. All Rights Reserved.
+          ©2026 LOCATIVE.ID. All Rights Reserved.
         </div>
 
       </div>
