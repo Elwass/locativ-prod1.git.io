@@ -6,8 +6,8 @@ import Reasons from "./Reasons";
 import WhyChoose from "./WhyChoose";
 import Workflow from "./Workflow";
 import Projects from "./Projects";
-import Services from "./Services";
 import VideoShowcase from "./VideoShowcase";
+import Services from "./Services";
 import Faq from "./Faq";
 import Footer from "./Footer";
 
@@ -22,8 +22,8 @@ export default function Home() {
       <WhyChoose />
       <Workflow />
       <Projects />
-      <Services />
       <VideoShowcase />
+      <Services />
       <Faq />
       <Footer />
     </>
