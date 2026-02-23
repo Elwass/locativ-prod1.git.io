@@ -6,12 +6,22 @@ export default function VideoShowcase() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   const videos = [
-    { id: "r8-lDBEWRHI", title: "Locativ - Dokumentasi Birthday Event" },
-    { id: "h8KZ3A7FLCk", title: "Locativ - Dokumentasi Basket Ball Event EXSO CUP" },
-    { id: "QZeCLovryCk", title: "Locativ - Padel Young Living" },
-    { id: "XtgOSWWGw-k", title: "Locativ - Outbound Hevinex Bhumi Bambu" },
-    { id: "XikIX418qyA", title: "Locativ - Family Gathering Goes To Semarang" },
-    { id: "bExW839K3uA", title: "Locativ - Gathering Family KSP Mahakarya" },
+    {
+      id: "6Rc2vniKsaI",
+      title: "Locativ - Corporate Annual Conference Maybank",
+    },
+    {
+      id: "yf44ThNMclU",
+      title: "Locativ - After Movie Expo Cup Basket",
+    },
+    {
+      id: "xKQZbNYHAxc",
+      title: "Locativ - Brand Abata Printing Company Profile",
+    },
+    {
+      id: "NpG63dQxxoM",
+      title: "Locativ - Gathering Family Pelangi Glass",
+    },
   ];
 
   return (
