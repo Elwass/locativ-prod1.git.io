@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 
 import logo from "../assets/element1-6.png";
 
-import img1 from "../assets/element2-6.png";
+import img1 from "../assets/element2-6.jpg";
 import img2 from "../assets/element3-6.jpg";
 import img3 from "../assets/element4-6.png";
 import img4 from "../assets/element5-6.png";
