@@ -59,7 +59,7 @@ export default function VideoShowcase() {
         <div className="md:max-w-7xl md:mx-auto md:px-4">
 
           {/* Headline */}
-          <div className="w-full bg-black py-7 flex items-center justify-between px-5 mb-8">
+          <div className="w-full bg-[#0f0f0f] py-7 flex items-center justify-between px-5 mb-8">
             <h2 className="text-2xl font-bold text-white">
               VIDEO SHOWCASE
             </h2>
