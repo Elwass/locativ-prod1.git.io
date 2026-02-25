@@ -1,5 +1,5 @@
+import adds from "../assets/adds.mp4";
 import decorLeft from "../assets/decor2-3.png";
-import decorCenter from "../assets/decor1-3.png";
 import decorRight from "../assets/decor3-3.png";
 import crossIcon from "../assets/element1-3.png";
 
@@ -7,91 +7,105 @@ export default function Reasons() {
   return (
     <section
       id="reasons"
-      className="relative bg-[#FAFAFA] py-10 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-[#FAFAFA] py-[35px] md:py-[40px] lg:py-[45px] overflow-hidden border-t border-b border-gray-200"
     >
-     {/* Decor Left */}
-<img
-  src={decorLeft}
-  alt="Decor Left"
-  className="
-    absolute
-    top-[20px]        /* MOBILE dinaikkan */
-    left-[10px]
-    md:top-[60px]     /* Tablet tetap */
-    md:left-[50px]
-    lg:top-[75px]     /* Desktop tetap */
-    lg:left-[100px]
-    w-[16px]
-    md:w-[26px]
-    lg:w-[30px]
-    z-0
-  "
-/>
 
-      {/* Decor Center (Behind Content on Mobile) */}
+      {/* ================= MOBILE BACKGROUND VIDEO (CINEMATIC) ================= */}
+      <div className="absolute inset-0 z-0 pointer-events-none lg:hidden">
+        <video
+          src={adds}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay biar teks kontras */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      {/* ================= DESKTOP RIGHT VIDEO (TETAP) ================= */}
+      <div className="hidden lg:block absolute top-0 right-0 w-1/2 h-full z-0">
+        <video
+          src={adds}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+
+      {/* ================= DECOR ================= */}
       <img
-        src={decorCenter}
-        alt="Decor Center"
+        src={decorLeft}
+        alt="Decor Left"
         className="
           absolute
-          top-1/2
-          left-[50%]
-          md:right-[2%]
-          lg:right-[15%]
-          -translate-y-1/2
-          w-[200px]
-          md:w-[300px]
-          lg:w-[390px]
-          opacity-20
-          md:opacity-90
-          z-0
+          top-[20px]
+          left-[10px]
+          md:top-[60px]
+          md:left-[50px]
+          lg:top-[75px]
+          lg:left-[100px]
+          w-[16px]
+          md:w-[26px]
+          lg:w-[30px]
+          z-20
         "
       />
 
-      {/* Decor Right */}
       <img
         src={decorRight}
         alt="Decor Right"
-        className="absolute top-[80px] -right-[20px] md:-right-[40px] lg:-right-[55px] w-10 md:w-20 lg:w-20 z-0"
+        className="
+          absolute
+          top-[80px]
+          -right-[20px]
+          md:-right-[40px]
+          lg:-right-[55px]
+          w-10
+          md:w-20
+          lg:w-20
+          z-20
+        "
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-30 max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-[80px] items-center">
 
+        {/* TEXT */}
         <div className="pl-1 md:pl-10 lg:pl-40">
 
-          {/* Heading (Smaller on Mobile) */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-5 md:mb-8 leading-tight">
+          <h2 className="text-[26px] md:text-[36px] lg:text-[42px] font-bold leading-tight mb-6 md:mb-8 text-white lg:text-gray-800">
             <span className="block font-semibold">Alasan Kenapa</span>
-
-            <div className="flex gap-2">
-              <span className="font-semibold">Kamu</span>
+            <span className="block">
+              <span className="font-semibold">Kamu</span>{" "}
               <span className="font-extrabold">Butuh</span>
-            </div>
-
+            </span>
             <span className="block font-semibold">Dokumentasi</span>
           </h2>
 
-          {/* List (Compact on Mobile) */}
-          <ul className="space-y-3 md:space-y-5 text-xs md:text-base text-gray-800">
+          <ul className="space-y-4 md:space-y-2 text-[15px] md:text-[16px] lg:text-[17px] text-white lg:text-gray-800">
             <li className="flex items-start gap-3">
-              <img src={crossIcon} className="w-3 md:w-5 mt-1" />
+              <img src={crossIcon} className="w-[18px] md:w-[20px] mt-1" />
               <span>Momen penting event terlewat</span>
             </li>
             <li className="flex items-start gap-3">
-              <img src={crossIcon} className="w-3 md:w-5 mt-1" />
+              <img src={crossIcon} className="w-[18px] md:w-[20px] mt-1" />
               <span>Foto & video kurang profesional</span>
             </li>
             <li className="flex items-start gap-3">
-              <img src={crossIcon} className="w-3 md:w-5 mt-1" />
+              <img src={crossIcon} className="w-[18px] md:w-[20px] mt-1" />
               <span>Hasil dokumentasi tidak layak dipakai untuk promosi</span>
             </li>
             <li className="flex items-start gap-3">
-              <img src={crossIcon} className="w-3 md:w-5 mt-1" />
+              <img src={crossIcon} className="w-[18px] md:w-[20px] mt-1" />
               <span>Tim datang tapi tidak paham alur event</span>
             </li>
             <li className="flex items-start gap-3">
-              <img src={crossIcon} className="w-3 md:w-5 mt-1" />
+              <img src={crossIcon} className="w-[18px] md:w-[20px] mt-1" />
               <span>Dokumentasi selesai, tapi ceritanya tidak terasa</span>
             </li>
           </ul>
@@ -99,7 +113,9 @@ export default function Reasons() {
         </div>
 
         <div className="hidden md:block"></div>
+
       </div>
+
     </section>
   );
 }
