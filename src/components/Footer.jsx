@@ -100,7 +100,7 @@ export default function Footer() {
             <h4 className="font-bold mb-1">Contact</h4>
             <p className="leading-tight">
               No :
-              <br />
+            
               <a
                 href="https://wa.me/6288901910211"
                 target="_blank"
@@ -110,7 +110,10 @@ export default function Footer() {
                 6288901910211
               </a>
               <br />
-              Email :
+              Facebook : <a href="https://www.facebook.com/share/1DMrkRhbfX/?mibextid=wwXIfr"
+              target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold hover:underline ml-1">Locativ.id</a>
               <br />
               IG :
               <a
