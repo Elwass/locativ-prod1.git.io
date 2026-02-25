@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Faq() {
-  const [active, setActive] = useState(null);// langsung aktif pertama biar tidak kosong mobile
+  const [active, setActive] = useState(null);
 
   const faqs = [
     {
@@ -22,9 +22,24 @@ export default function Faq() {
     },
   ];
 
+  const handleQuestionClick = (index) => {
+    // kalau klik yang sama → reset
+    setActive(active === index ? null : index);
+  };
+
+  const handleSectionClick = () => {
+    setActive(null);
+  };
+
   return (
-    <section className="bg-[#0f0f0f] text-white py-10 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section
+      className="bg-[#0f0f0f] text-white py-10 md:py-20 lg:py-24"
+      onClick={handleSectionClick}
+    >
+      <div
+        className="max-w-7xl mx-auto px-4 md:px-6"
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* TITLE */}
         <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-4 md:mb-6">
@@ -42,7 +57,10 @@ export default function Faq() {
             {faqs.map((item, i) => (
               <div
                 key={i}
-                onClick={() => setActive(i)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleQuestionClick(i);
+                }}
                 className="flex items-start gap-3 mb-4 md:mb-6 cursor-pointer"
               >
                 {/* NUMBER */}
@@ -65,9 +83,7 @@ export default function Faq() {
                 {/* QUESTION */}
                 {active === i ? (
                   <div className="relative bg-yellow-400 text-black px-3 md:px-6 py-2 md:py-4 w-full font-semibold text-xs md:text-base">
-
                     <div className="absolute left-0 top-0 h-full w-[4px] md:w-[6px] bg-white" />
-
                     {item.q}
                   </div>
                 ) : (
@@ -82,19 +98,22 @@ export default function Faq() {
           {/* RIGHT */}
           <div>
             {active !== null && (
-              <div className="bg-white text-black p-4 md:p-8 shadow-lg animate-faq">
+              <div
+                className="bg-white text-black p-4 md:p-8 shadow-lg animate-faq"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <p className="mb-3 text-sm md:text-lg">
                   {faqs[active].a}
                 </p>
 
                 <a
-  href="https://wa.me/6288901910211"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 font-semibold text-sm md:text-lg text-blue-600 hover:text-blue-700 transition"
->
-  ▶ Diskusikan kebutuhan event kamu bersama tim kami.
-</a>
+                  href="https://wa.me/6288901910211"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-semibold text-sm md:text-lg text-blue-600 hover:text-blue-700 transition"
+                >
+                  ▶ Diskusikan kebutuhan event kamu bersama tim kami.
+                </a>
               </div>
             )}
           </div>
