@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from "react";
-
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import logo from "../assets/element1-6.png";
 
 import img1 from "../assets/element2-6.jpg";
@@ -10,48 +10,74 @@ import img5 from "../assets/element6-6.jpg";
 
 export default function Projects() {
 
-  const items = [
-    { img: img1, title: "Corporate", color: "bg-blue-500 text-white" },
-    { img: img2, title: "Brand", color: "bg-blue-500 text-white" },
-    { img: img3, title: "Private Event", color: "bg-yellow-400 text-black" },
-    { img: img4, title: "Organization", color: "bg-blue-500 text-white" },
-    { img: img5, title: "Sport", color: "bg-yellow-400 text-black" },
+  const baseItems = [
+    { img: img1 },
+    { img: img2 },
+    { img: img3 },
+    { img: img4 },
+    { img: img5 },
   ];
 
-  const scrollRef = useRef(null);
-  const [progress, setProgress] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const items = Array(20).fill(baseItems).flat();
 
-  // ================= PROGRESS =================
-  const handleScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
+  const desktopScrollRef = useRef(null);
+  const mobileScrollRef = useRef(null);
+  const progressRef = useRef(null);
 
-    const scrollWidth = el.scrollWidth - el.clientWidth;
-    const scrolled = el.scrollLeft;
-
-    setProgress((scrolled / scrollWidth) * 100);
-  };
-
-  // ================= AUTO SNAP SCROLL =================
+  // ================= DESKTOP AUTO SCROLL (TIDAK DIUBAH) =================
   useEffect(() => {
-    const el = scrollRef.current;
+    const el = desktopScrollRef.current;
     if (!el) return;
 
     const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % items.length;
-      const width = el.clientWidth;
-
-      el.scrollTo({
-        left: nextIndex * width,
+      el.scrollBy({
+        left: 300,
         behavior: "smooth",
       });
-
-      setCurrentIndex(nextIndex);
-    }, 3000); // 3 detik pindah
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, items.length]);
+  }, []);
+
+  // ================= MOBILE AUTO SCROLL + PROGRESS =================
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    const progressEl = progressRef.current;
+    if (!el || !progressEl) return;
+
+    // AUTO SCROLL
+    const interval = setInterval(() => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+
+      if (el.scrollLeft >= maxScroll - 5) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({
+          left: el.clientWidth,
+          behavior: "smooth",
+        });
+      }
+    }, 3000);
+
+    // PROGRESS TRACKER
+    const handleScroll = () => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      const progress = el.scrollLeft / maxScroll;
+
+      gsap.to(progressEl, {
+        height: `${progress * 100}%`,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    };
+
+    el.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearInterval(interval);
+      el.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <section id="projects" className="bg-white w-full relative">
@@ -59,7 +85,6 @@ export default function Projects() {
       {/* ================= MOBILE ================= */}
       <div className="md:hidden relative">
 
-        {/* Headline */}
         <div className="w-full bg-[#FAFAFA] py-7 flex items-center justify-between px-5">
           <h2 className="text-2xl font-bold text-black">
             PROJEK KAMI
@@ -67,113 +92,71 @@ export default function Projects() {
           <img src={logo} alt="Logo" className="w-14 object-contain" />
         </div>
 
-        {/* Scroll Container */}
         <div className="relative">
 
+          {/* SCROLL AREA */}
           <div
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="
-              w-full
-              overflow-x-auto
-              flex
-              snap-x
-              snap-mandatory
-              scroll-smooth
-            "
+            ref={mobileScrollRef}
+            className="w-full overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
           >
-            {items.map((item, i) => (
+            {baseItems.map((item, i) => (
               <div
                 key={i}
-                className="
-                  snap-start
-                  shrink-0
-                  w-full
-                  h-[260px]
-                  relative
-                "
+                className="snap-start shrink-0 w-full h-[260px] relative"
               >
                 <img
                   src={item.img}
-                  alt={item.title}
+                  alt="Project"
                   className="w-full h-full object-cover"
                 />
-
-                <div
-                  className={`
-                    absolute bottom-0 left-0 w-full
-                    text-center py-3
-                    text-lg font-extrabold tracking-wide
-                    ${item.color}
-                  `}
-                >
-                  {item.title}
-                </div>
               </div>
             ))}
           </div>
 
-          {/* Vertical Progress Bar */}
-          <div className="absolute right-0 top-0 h-full w-[6px] bg-gray-200">
+          {/* PROGRESS BAR RIGHT */}
+          <div className="absolute top-0 right-0 h-full w-[4px] bg-gray-200">
             <div
-              className="bg-blue-500 transition-all duration-300"
-              style={{
-                height: `${progress}%`,
-              }}
+              ref={progressRef}
+              className="w-full bg-blue-500"
+              style={{ height: "0%" }}
             />
           </div>
 
         </div>
       </div>
 
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden md:block bg-[#FAFAFA] py-14">
 
-
-      {/* ================= DESKTOP (TIDAK DIUBAH) ================= */}
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 w-full">
-
-        <div className="relative h-[300px]">
-          <img src={img1} alt="Corporate" className="w-full h-full object-cover" />
-          <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white text-center py-3 text-xl font-extrabold">
-            Corporate
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center text-center bg-white py-12">
-          <img src={logo} alt="Logo" className="w-24 mb-3" />
-          <h2 className="text-4xl font-bold leading-tight">
-            PROJEK <br /> KAMI
+        <div className="max-w-7xl mx-auto px-6 mb-10 flex items-center justify-between">
+          <h2 className="text-3xl font-bold text-black">
+            PROJEK KAMI
           </h2>
+          <img src={logo} alt="Logo" className="w-16 object-contain" />
         </div>
 
-        <div className="relative h-[300px]">
-          <img src={img2} alt="Brand" className="w-full h-full object-cover" />
-          <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white text-center py-3 text-xl font-extrabold">
-            Brand
-          </div>
-        </div>
-
-        <div className="relative h-[300px]">
-          <img src={img3} alt="Private Event" className="w-full h-full object-cover" />
-          <div className="absolute bottom-0 left-0 w-full bg-yellow-400 text-black text-center py-3 text-xl font-extrabold">
-            Private Event
-          </div>
-        </div>
-
-        <div className="relative h-[300px]">
-          <img src={img4} alt="Organization" className="w-full h-full object-cover" />
-          <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white text-center py-3 text-xl font-extrabold">
-            Organization
-          </div>
-        </div>
-
-        <div className="relative h-[300px]">
-          <img src={img5} alt="Sport" className="w-full h-full object-cover" />
-          <div className="absolute bottom-0 left-0 w-full bg-yellow-400 text-black text-center py-3 text-xl font-extrabold">
-            Sport
+        <div className="max-w-7xl mx-auto px-6">
+          <div
+            ref={desktopScrollRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth"
+          >
+            {items.map((item, i) => (
+              <div
+                key={i}
+                className="shrink-0 w-[280px] h-[320px] relative bg-white"
+              >
+                <img
+                  src={item.img}
+                  alt="Project"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
       </div>
+
     </section>
   );
 }
