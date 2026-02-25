@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
 import logo from "../assets/element1-6.png";
 
 import img1 from "../assets/element2-6.jpg";
@@ -9,7 +8,6 @@ import img4 from "../assets/element5-6.jpg";
 import img5 from "../assets/element6-6.jpg";
 
 export default function Projects() {
-
   const baseItems = [
     { img: img1 },
     { img: img2 },
@@ -24,7 +22,7 @@ export default function Projects() {
   const mobileScrollRef = useRef(null);
   const progressRef = useRef(null);
 
-  // ================= DESKTOP AUTO SCROLL (TIDAK DIUBAH) =================
+  // ================= DESKTOP AUTO SCROLL =================
   useEffect(() => {
     const el = desktopScrollRef.current;
     if (!el) return;
@@ -59,16 +57,13 @@ export default function Projects() {
       }
     }, 3000);
 
-    // PROGRESS TRACKER
+    // PROGRESS TRACKER (tanpa GSAP)
     const handleScroll = () => {
       const maxScroll = el.scrollWidth - el.clientWidth;
       const progress = el.scrollLeft / maxScroll;
 
-      gsap.to(progressEl, {
-        height: `${progress * 100}%`,
-        duration: 0.4,
-        ease: "power2.out",
-      });
+      progressEl.style.height = `${progress * 100}%`;
+      progressEl.style.transition = "height 0.4s ease-out";
     };
 
     el.addEventListener("scroll", handleScroll);
@@ -81,7 +76,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="bg-white w-full relative">
-
+      
       {/* ================= MOBILE ================= */}
       <div className="md:hidden relative">
 
@@ -94,7 +89,6 @@ export default function Projects() {
 
         <div className="relative">
 
-          {/* SCROLL AREA */}
           <div
             ref={mobileScrollRef}
             className="w-full overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
@@ -113,7 +107,7 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* PROGRESS BAR RIGHT */}
+          {/* PROGRESS BAR */}
           <div className="absolute top-0 right-0 h-full w-[4px] bg-gray-200">
             <div
               ref={progressRef}
