@@ -200,7 +200,7 @@ lg:items-center     /* Desktop kembali ke atas */
            top-[170px] right-[17px] 
            -translate-y-1/2
            w-4 md:w-6
-           z-20`}),u.jsxs("div",{className:"px-4",children:[u.jsx("div",{className:"flex justify-center",children:u.jsxs("div",{className:"grid grid-cols-2 gap-3 md:gap-8",children:[u.jsx("div",{ref:i=>r.current[0]=i,"data-index":"0",className:`w-full md:w-[240px] ${l(0)}`,children:u.jsx("img",{src:sp,alt:"Service 1",className:"w-full object-contain"})}),u.jsx("div",{ref:i=>r.current[1]=i,"data-index":"1",className:`w-[165px] md:w-[230px] ${l(1)}`,children:u.jsx("img",{src:up,alt:"Service 2",className:"w-full object-contain"})})]})}),u.jsx("div",{className:"mt-8 text-center",children:u.jsxs("a",{href:"https://wa.me/6288901910211",target:"_blank",rel:"noopener noreferrer",className:`inline-flex items-center justify-center 
+           z-20`}),u.jsxs("div",{className:"px-4",children:[u.jsx("div",{className:"flex justify-center",children:u.jsxs("div",{className:"grid grid-cols-2 gap-3 md:gap-8",children:[u.jsx("div",{ref:i=>r.current[0]=i,"data-index":"0",className:`w-full md:w-[240px] ${l(0)}`,children:u.jsx("img",{src:sp,alt:"Service 1",className:"w-full object-contain"})}),u.jsx("div",{ref:i=>r.current[1]=i,"data-index":"1",className:`w-[165px] md:w-[230px] ${l(1)}`,children:u.jsx("img",{src:up,alt:"Service 2",className:"w-full object-contain"})})]})}),u.jsx("div",{className:"mt-8 text-center",children:u.jsxs("a",{href:"https://wa.me/6288226853276",target:"_blank",rel:"noopener noreferrer",className:`inline-flex items-center justify-center 
            w-full max-w-[335px] 
            md:max-w-[480px] 
            bg-black text-white 
