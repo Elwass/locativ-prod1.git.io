@@ -1,28 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "../assets/element1-6.png";
 
 export default function VideoShowcase() {
   const [hoveredId, setHoveredId] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
+  const scrollRef = useRef(null);
 
   const videos = [
-    {
-      id: "6Rc2vniKsaI",
-      title: "Locativ - Corporate Annual Conference Maybank",
-    },
-    {
-      id: "yf44ThNMclU",
-      title: "Locativ - After Movie Expo Cup Basket",
-    },
-    {
-      id: "xKQZbNYHAxc",
-      title: "Locativ - Brand Abata Printing Company Profile",
-    },
-    {
-      id: "NpG63dQxxoM",
-      title: "Locativ - Gathering Family Pelangi Glass",
-    },
+    { id: "6Rc2vniKsaI", title: "Locativ - Corporate Annual Conference Maybank" },
+    { id: "yf44ThNMclU", title: "Locativ - After Movie Expo Cup Basket" },
+    { id: "xKQZbNYHAxc", title: "Locativ - Brand Abata Printing Company Profile" },
+       { id: "p4kDFyfCujY", title: "Locativ - Sport Padel" },
+    { id: "7LqWaSmNJUI", title: "Locativ - Compro Abata Printing" },
+    { id: "VJyw0oL1-eo", title: "Locativ - Event Launching Ruang Disabilitas 2" },
+    { id: "RP2BVztu-1k", title: "Locativ - Pelantikan Hipmi" },
+    { id: "KvmSJLCzA5E", title: "Locativ - Event Natal" },
+    { id: "Wwt8n42pn2s", title: "Locativ - Gathering Deli X Gemilang" },
+    { id: "otPSUU5epE4", title: "Locativ - Gathering Bhumi Bambu" },
+    { id: "sQ28zFCzCFo", title: "Locativ - Gathering KSP Mahakarya" },
+    { id: "IjEq_MQ70Yk", title: "Locativ - Gathering PT. Indonesia TRC Industri" },
+    { id: "JVfyaA48P-U", title: "Locativ - After Movie Opening Ngikan" },
+    { id: "QDI5U5HVCig", title: "Locativ - Event Launching Ruang Disabilitas" },
+    { id: "NpG63dQxxoM", title: "Locativ - Gathering Family Pelangi Glass" },
+ 
   ];
+
+  // 🔥 Auto Scroll "Set-Set"
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const firstCard = container.querySelector("div");
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.offsetWidth + 20; // width + gap
+    let index = 0;
+
+    const interval = setInterval(() => {
+      index++;
+
+      if (index >= videos.length) {
+        index = 0;
+      }
+
+      container.scrollTo({
+        left: cardWidth * index,
+        behavior: "smooth",
+      });
+    }, 3000); // 3 detik sekali
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -36,7 +64,10 @@ export default function VideoShowcase() {
             <img src={logo} alt="Logo" className="w-14 object-contain" />
           </div>
 
-          <div className="flex overflow-x-auto gap-5 px-5 md:px-0">
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-5 px-5 md:px-0 scroll-smooth"
+          >
             {videos.map((video) => (
               <div
                 key={video.id}
