@@ -88,7 +88,7 @@ export default function Navbar() {
               </li>
 
               <li className="border-b border-gray-400 pb-3">
-                <a href="#reasons" onClick={() => setIsOpen(false)}>
+                <a href="#workflow" onClick={() => setIsOpen(false)}>
                   LAYANAN
                 </a>
               </li>
