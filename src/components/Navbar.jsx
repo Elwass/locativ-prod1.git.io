@@ -50,7 +50,7 @@ export default function Navbar() {
           <li><a href="#projects" className="hover:text-blue-400">PORTOFOLIO</a></li>
           <li><a href="#reasons" className="hover:text-blue-400">PAKET</a></li>
           <li>
-            <a href="#contact">
+              <a href="https://wa.me/6288226853276">
               <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 text-sm font-semibold ml-4">
                 KONTAK
               </button>
