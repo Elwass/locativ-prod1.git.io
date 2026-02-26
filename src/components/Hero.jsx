@@ -92,7 +92,7 @@ lg:items-center     /* Desktop kembali ke atas */
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
         
-        <a href="https://wa.me/6288901910211">
+        <a href="https://wa.me/6288226853276">
    <button className="bg-blue-500 hover:bg-blue-600 px-6 md:px-8 py-3 text-sm md:text-base font-semibold w-full sm:w-auto">
             Booking Tim Dokumentasi
           </button>
