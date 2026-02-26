@@ -46,9 +46,9 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-5 text-l font-medium lg:mr-[200px] lg:h-[70px] lg:mt-[40px]">
           <li><a href="#home" className="hover:text-blue-400">HOME</a></li>
-          <li><a href="#reasons" className="hover:text-blue-400">LAYANAN</a></li>
+          <li><a href="#services" className="hover:text-blue-400">LAYANAN</a></li>
           <li><a href="#projects" className="hover:text-blue-400">PORTOFOLIO</a></li>
-          <li><a href="#services" className="hover:text-blue-400">PAKET</a></li>
+          <li><a href="#reasons" className="hover:text-blue-400">PAKET</a></li>
           <li>
             <a href="#contact">
               <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 text-sm font-semibold ml-4">
