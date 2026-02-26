@@ -111,7 +111,7 @@ export default function Services() {
         {/* BUTTON */}
         <div className="mt-8 text-center">
           <a
-            href="https://wa.me/6288901910211"
+            href="https://wa.me/6288226853276"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center 
