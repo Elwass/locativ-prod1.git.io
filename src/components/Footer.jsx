@@ -78,7 +78,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="ml-1 hover:underline"
                 >
-                  6288226853276
+                  088226853276
                 </a>
               </div>
               <div>
