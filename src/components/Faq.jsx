@@ -10,7 +10,7 @@ export default function Faq() {
     },
     {
       q: "Berapa lama proses editing?",
-      a: "Proses editing biasanya memakan waktu 3–7 hari kerja tergantung kebutuhan.",
+      a: "Proses editing biasanya memakan waktu 1-3 hari kerja tergantung kebutuhan.",
     },
     {
       q: "Apakah bisa cover event luar kota?",
