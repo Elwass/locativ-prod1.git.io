@@ -98,7 +98,7 @@ lg:items-center     /* Desktop kembali ke atas */
           </button>
         </a>
        
-<a href="https://wa.me/6288901910211">
+<a href="#workflow">
   <button className="border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-6 md:px-8 py-3 text-sm md:text-base font-semibold transition w-full sm:w-auto">
             Pelajari Selengkapnya
           </button>
