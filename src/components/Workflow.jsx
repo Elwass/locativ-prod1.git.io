@@ -4,7 +4,7 @@ import decorBottom from "../assets/decor2-5.png";
 
 export default function Workflow() {
   return (
-    <section className="relative bg-[#FAFAFA] py-[35px] md:py-[65px] lg:py-[80px] overflow-hidden">
+    <section id="workflow" className="relative bg-[#FAFAFA] py-[35px] md:py-[65px] lg:py-[80px] overflow-hidden">
 
       {/* Decor Top */}
       <img
