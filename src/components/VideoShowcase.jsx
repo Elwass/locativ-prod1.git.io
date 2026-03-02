@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import logo from "../assets/element1-6.png";
+import logo from "../assets/element1-6.jpg";
 
 export default function VideoShowcase() {
   const [hoveredId, setHoveredId] = useState(null);
