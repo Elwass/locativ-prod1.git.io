@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import logo from "../assets/element1-6.png";
+import logo from "../assets/element1-6.jpg";
 
 // ===== FOTO LAMA =====
 import img1 from "../assets/element2-6.jpg";
