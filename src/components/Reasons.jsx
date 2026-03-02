@@ -1,7 +1,7 @@
 import adds from "../assets/adds.mp4";
-import decorLeft from "../assets/decor2-3.png";
-import decorRight from "../assets/decor3-3.png";
-import crossIcon from "../assets/element1-3.png";
+import decorLeft from "../assets/decor2-3.jpg";
+import decorRight from "../assets/decor3-3.jpg";
+import crossIcon from "../assets/element1-3.jpg";
 
 export default function Reasons() {
   return (
