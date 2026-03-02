@@ -1,6 +1,6 @@
-import logo1 from "../assets/element1-2.png"; 
-import logo2 from "../assets/element2-2.png";
-import logo3 from "../assets/element3-2.png";
+import logo1 from "../assets/element1-2.jpg"; 
+import logo2 from "../assets/element2-2.jpg";
+import logo3 from "../assets/element3-2.jpg";
 
 export default function Clients() {
   const logos = [logo1, logo2, logo3];
