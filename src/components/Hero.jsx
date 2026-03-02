@@ -1,4 +1,4 @@
-import decor from "../assets/decor1-1.png";
+import decor from "../assets/decor1-1.jpg";
 
 export default function Hero() {
   return (
