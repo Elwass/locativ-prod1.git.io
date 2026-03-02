@@ -1,6 +1,6 @@
-import iconBg from "../assets/element1-5.png";
-import decorTop from "../assets/decor1-5.png";
-import decorBottom from "../assets/decor2-5.png";
+import iconBg from "../assets/element1-5.jpg";
+import decorTop from "../assets/decor1-5.jpg";
+import decorBottom from "../assets/decor2-5.jpg";
 
 export default function Workflow() {
   return (
