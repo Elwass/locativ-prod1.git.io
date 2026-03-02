@@ -1,9 +1,9 @@
-import personImg from "../assets/element1-4.png";
+import personImg from "../assets/element1-4.jpg";
 import checkIcon from "../assets/element2-4.jpg";
-import decor from "../assets/decor10-3.png"; // ← ganti di sini
-import decorLeft from "../assets/decor2-3.png";
-import decorCenter from "../assets/decor1-3.png";
-import decorRight from "../assets/decor3-3.png";
+import decor from "../assets/decor10-3.jpg"; // ← ganti di sini
+import decorLeft from "../assets/decor2-3.jpg";
+import decorCenter from "../assets/decor1-3.jpg";
+import decorRight from "../assets/decor3-3.jpg";
 
 export default function WhyChoose() {
   return (
