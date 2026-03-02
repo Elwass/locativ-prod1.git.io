@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import serviceCard1 from "../assets/services.png";
-import serviceCard2 from "../assets/services1.png";
-import decorLeft from "../assets/decor2-3.png";   // ⭐ kuning
-import decorRight from "../assets/decor3-3.png";  // ⭐ biru
+import serviceCard1 from "../assets/services.jpg";
+import serviceCard2 from "../assets/services1.jpg";
+import decorLeft from "../assets/decor2-3.jpg";   // ⭐ kuning
+import decorRight from "../assets/decor3-3.jpg";  // ⭐ biru
 
 export default function Services() {
   const isMobile =
